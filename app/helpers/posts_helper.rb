@@ -13,7 +13,7 @@ module PostsHelper
   end
 
   def format_subject(s, opts={})
-    if s =~ /\A(\[.*\])(.*)/
+    if s =~ /\A((?:\[.*?\])+)(.*)/
       tags = " <span class='redmine_tags'> - #{h $1}</span>"
       "#{h $2.lstrip}#{tags unless opts[:no_tags]}".html_safe
     else
